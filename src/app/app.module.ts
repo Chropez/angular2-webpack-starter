@@ -1,9 +1,10 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -19,6 +20,20 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
+// Services
+import { Services } from './shared/services';
+
+// My new components
+import { SharedComponents } from './shared/components';
+import { LoginComponent } from './login/login.component';
+import { OrdersComponent } from './orders/orders.component';
+
+import { SaladsComponent } from './salads/salads.component';
+import { NewSaladComponent } from './salads/new-salad.component';
+import { NewSaladFormComponent } from './salads/new-salad-form.component';
+
+import { DrinksComponent } from './drinks/drinks.component';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -30,7 +45,7 @@ type StoreType = {
   restoreInputValues: () => void,
   disposeOldHosts: () => void
 };
-
+console.log(NgbModule.forRoot());
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -41,17 +56,30 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLarge
+    XLarge,
+
+    SharedComponents,
+    LoginComponent,
+    OrdersComponent,
+
+    SaladsComponent,
+    NewSaladComponent,
+    NewSaladFormComponent,
+
+    DrinksComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    RouterModule.forRoot(ROUTES),
+    NgbModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    Services
   ]
 })
 export class AppModule {

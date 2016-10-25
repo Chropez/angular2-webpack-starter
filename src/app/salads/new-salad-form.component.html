@@ -1,0 +1,34 @@
+<form (ngSubmit)="submit()" [formGroup]="form" >
+  <form-input
+    label="Namn"
+    formControlName="name"
+    [(model)]="model.name"
+    isRequired="true"
+    isRequiredErrorMessage="'Namn måste anges'">
+  </form-input>
+
+  <form-textarea
+    label="Ingredienser"
+    formControlName="ingredients"
+    [(model)]="model.ingredients">
+  </form-textarea>
+
+  <form-select
+    label="Typ av sallad"
+    formControlName="saladType"
+    [(model)]="model.saladType"
+    isRequired="true"
+    isRequiredErrorMessage="'Typ av sallad måste anges'"
+    [options]="saladTypeOptions">
+  </form-select>
+
+  <form-input
+    label="Pris"
+    formControlName="price"
+    [(model)]="model.price"
+    type="number">
+  </form-input>
+
+  form valid : {{form.valid}}
+
+</form>

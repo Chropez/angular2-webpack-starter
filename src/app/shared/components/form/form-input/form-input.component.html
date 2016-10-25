@@ -1,0 +1,24 @@
+<form-general
+  [label]="label"
+  [formControl]="formControl"
+  [isRequired]="isRequired"
+  [isRequiredErrorMessage]="isRequiredErrorMessage">
+    <input class="form-control"
+        [formControl]="formControl"
+        [(ngModel)]="model"
+        (ngModelChange)="modelDidChange($event)"
+        [type]="type"
+        >
+</form-general>
+<!--<form-general
+  [label]="label"
+  [formControl]="formControl"
+  [isRequired]="isRequired"
+  [isRequiredErrorMessage]="isRequiredErrorMessage">
+    <input class="form-control"
+        [formControl]="formControl"
+        [(ngModel)]="model"
+        (ngModelChange)="modelDidChange($event)"
+        [type]="type"
+        [required]="isRequired">
+</form-general>-->

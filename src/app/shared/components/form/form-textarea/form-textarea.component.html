@@ -1,0 +1,37 @@
+<form-general
+  [label]="label"
+  [formControl]="formControl"
+  [isRequired]="isRequired"
+  [isRequiredErrorMessage]="isRequiredErrorMessage">
+    <input class="form-control" rows="2"
+      [formControl]="formControl"
+      [(ngModel)]="model"
+      (ngModelChange)="modelDidChange($event)">
+    <!--<textarea class="form-control" rows="2"
+      [formControl]="formControl"
+      [required]="isRequired"
+      [(ngModel)]="model"
+      (ngModelChange)="modelDidChange($event)"></textarea>-->
+
+      {{formControl.value}}
+</form-general>
+<!--
+
+<form-general
+  [label]="label"
+  [formControl]="formControl"
+  [isRequired]="isRequired"
+  [isRequiredErrorMessage]="isRequiredErrorMessage">
+    <input class="form-control" rows="2"
+      [formControl]="formControl"
+      [required]="isRequired"
+      [(ngModel)]="model"
+      (ngModelChange)="modelDidChange($event)">
+    <!--<textarea class="form-control" rows="2"
+      [formControl]="formControl"
+      [required]="isRequired"
+      [(ngModel)]="model"
+      (ngModelChange)="modelDidChange($event)"></textarea>-->
+
+      <!--{{formControl.value}}
+</form-general>-->

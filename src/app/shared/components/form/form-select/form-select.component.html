@@ -1,0 +1,15 @@
+<form-general
+  [formControl]="formControl"
+  [label]="label"
+  [isRequired]="isRequired"
+  [isRequiredErrorMessage]="isRequiredErrorMessage">
+    <select class="form-control"
+      [formControl]="formControl"
+      [(ngModel)]="model"
+      (ngModelChange)="modelDidChange($event)"
+      [required]="isRequired">
+        <option *ngFor="let option of options" [value]="option.value">
+          {{option.label}}
+        </option>
+    </select>
+</form-general>
